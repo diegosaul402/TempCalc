@@ -106,9 +106,9 @@ public class MainActivity extends AppCompatActivity {
         public CharSequence getPageTitle(int position) {
             switch (position) {
                 case 0:
-                    return "Conversor";
+                    return getString(R.string.tabcalc);
                 case 1:
-                    return "Historico";
+                    return getString(R.string.hist);
             }
             return null;
         }
