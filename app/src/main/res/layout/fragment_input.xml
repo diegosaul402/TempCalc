@@ -1,13 +1,47 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.diegosaul402.tempcalc.fragments.inputFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <EditText
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="fragmento de entrada" />
+        android:layout_height="wrap_content"
+        android:inputType="numberDecimal"
+        android:ems="10"
+        android:id="@+id/input"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true" />
 
-</FrameLayout>
+    <RadioGroup
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_below="@id/input">
+
+        <RadioButton
+            android:text="@string/Celsius"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/radioCelsius"
+            android:layout_weight="1" />
+
+        <RadioButton
+            android:text="@string/Far"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/radioFar"
+            android:layout_weight="1" />
+
+        <RadioButton
+            android:text="@string/Kelvin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/radioKelvin"
+            android:layout_weight="1" />
+    </RadioGroup>
+
+
+
+
+</RelativeLayout>

@@ -7,4 +7,7 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="tabcalc">Conversor</string>
     <string name="hist">Historico</string>
+    <string name="Kelvin">Kelvin</string>
+    <string name="Far">Fahrenheit</string>
+    <string name="Celsius">Celsius</string>
 </resources>
