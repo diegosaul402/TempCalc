@@ -1,4 +1,4 @@
-package com.diegosaul402.tempcalc;
+package com.diegosaul402.tempcalc.fragments;
 
 
 import android.os.Bundle;
