@@ -1,6 +1,5 @@
 package com.diegosaul402.tempcalc.fragments;
 
-
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -13,10 +12,16 @@ import android.widget.RadioGroup;
 import android.widget.TextView;
 
 import com.diegosaul402.tempcalc.R;
+import com.diegosaul402.tempcalc.temps.TempEntity;
+import com.diegosaul402.tempcalc.temps.TempUtils;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+
+import static com.diegosaul402.tempcalc.temps.TempUtils.calcFromC;
+import static com.diegosaul402.tempcalc.temps.TempUtils.calcFromF;
+import static com.diegosaul402.tempcalc.temps.TempUtils.calcFromK;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -50,14 +55,19 @@ public class inputFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_input, container, false);
         ButterKnife.bind(this, view);
+        radioCelsius.setChecked(true);
+        input.setFocusable(true);
         return view;
     }
 
     @OnClick(R.id.button)
     public void handleClick(){
-        if(radioCelsius.isChecked()) textOutput.setText("Celsius");
-        if(radioFar.isChecked()) textOutput.setText("Farhenheit");
-        if(radioKelvin.isChecked()) textOutput.setText("Kelvin");
+        String strInput = input.getText().toString().trim();
+        double inputD = Double.parseDouble(strInput);
+
+        if(radioCelsius.isChecked()) textOutput.setText(calcFromC(inputD));
+        if(radioFar.isChecked()) textOutput.setText(calcFromF(inputD));
+        if(radioKelvin.isChecked()) textOutput.setText(calcFromK(inputD));
     }
 
     @Override
