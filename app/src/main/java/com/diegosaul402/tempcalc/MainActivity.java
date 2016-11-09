@@ -9,13 +9,8 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.os.Bundle;
-import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.view.ViewGroup;
-
-import android.widget.TextView;
 
 import com.diegosaul402.tempcalc.fragments.detailsFragment;
 import com.diegosaul402.tempcalc.fragments.inputFragment;
@@ -23,6 +18,7 @@ import com.diegosaul402.tempcalc.fragments.inputFragment;
 public class MainActivity extends AppCompatActivity {
 
     private SectionsPagerAdapter mSectionsPagerAdapter;
+    private inputFragment fragmentInput;
 
     /**
      * The {@link ViewPager} that will host the section contents.
@@ -41,11 +37,13 @@ public class MainActivity extends AppCompatActivity {
         mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
 
         // Set up the ViewPager with the sections adapter.
-        mViewPager = (ViewPager) findViewById(R.id.container);
+        mViewPager = (ViewPager) findViewById(R.id.viewPager);
         mViewPager.setAdapter(mSectionsPagerAdapter);
 
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
         tabLayout.setupWithViewPager(mViewPager);
+
+        //fragmentInput = getSupportFragmentManager().findFragmentById(R.id.)
 
     }
 
@@ -114,4 +112,16 @@ public class MainActivity extends AppCompatActivity {
             return null;
         }
     }
+    /*@Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+
+        switch (keyCode) {
+            case KeyEvent.KEYCODE_ENTER:
+            {
+                textOutput.setText("Works");
+                return true;
+            }
+        }
+        return super.onKeyDown(keyCode, event);
+    }*/
 }
