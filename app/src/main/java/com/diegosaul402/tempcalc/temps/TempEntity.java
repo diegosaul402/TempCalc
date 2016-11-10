@@ -1,5 +1,7 @@
 package com.diegosaul402.tempcalc.temps;
 
+import java.util.Date;
+
 /**
  * Created by diego on 09/11/2016.
  */
@@ -8,6 +10,7 @@ public class TempEntity {
     private double tempK;
     private double tempF;
     private double tempC;
+    private Date timetamp;
 
     public double getTempK() {
         return tempK;
@@ -31,5 +34,13 @@ public class TempEntity {
 
     public void setTempC(double tempC) {
         this.tempC = tempC;
+    }
+
+    public Date getTimetamp() {
+        return timetamp;
+    }
+
+    public void setTimetamp(Date timetamp) {
+        this.timetamp = timetamp;
     }
 }

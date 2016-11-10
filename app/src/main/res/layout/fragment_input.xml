@@ -9,9 +9,11 @@
         android:layout_height="wrap_content"
         android:inputType="numberSigned"
         android:ems="10"
+        android:hint="@string/input_hint"
         android:id="@+id/txtInput"
         android:layout_alignParentTop="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:imeOptions="actionDone"/>
 
     <RadioGroup
         android:layout_width="wrap_content"
