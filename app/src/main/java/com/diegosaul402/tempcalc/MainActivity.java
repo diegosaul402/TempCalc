@@ -12,7 +12,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 
-import com.diegosaul402.tempcalc.fragments.detailsFragment;
+import com.diegosaul402.tempcalc.fragments.DetailsFragment;
 import com.diegosaul402.tempcalc.fragments.inputFragment;
 
 public class MainActivity extends AppCompatActivity {
@@ -88,7 +88,7 @@ public class MainActivity extends AppCompatActivity {
                 case 0:
                     return new inputFragment();
                 case 1:
-                    return new detailsFragment();
+                    return new DetailsFragment();
                 default:
                     return null;
             }
