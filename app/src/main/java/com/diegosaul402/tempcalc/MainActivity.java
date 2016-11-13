@@ -18,12 +18,13 @@ import com.diegosaul402.tempcalc.fragments.inputFragment;
 public class MainActivity extends AppCompatActivity {
 
     private SectionsPagerAdapter mSectionsPagerAdapter;
-    private inputFragment fragmentInput;
+    public inputFragment inputFragment = null;
+    public DetailsFragment detailsFragment = null;
 
     /**
      * The {@link ViewPager} that will host the section contents.
      */
-    private ViewPager mViewPager;
+    public ViewPager mViewPager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,15 +37,15 @@ public class MainActivity extends AppCompatActivity {
         // primary sections of the activity.
         mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
 
+        //Set up fragments
+        inputFragment = new inputFragment();
+        detailsFragment = new DetailsFragment();
         // Set up the ViewPager with the sections adapter.
         mViewPager = (ViewPager) findViewById(R.id.viewPager);
         mViewPager.setAdapter(mSectionsPagerAdapter);
 
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
         tabLayout.setupWithViewPager(mViewPager);
-
-        //fragmentInput = getSupportFragmentManager().findFragmentById(R.id.)
-
     }
 
 
@@ -86,9 +87,9 @@ public class MainActivity extends AppCompatActivity {
             // Return a PlaceholderFragment (defined as a static inner class below).
             switch (position) {
                 case 0:
-                    return new inputFragment();
+                    return inputFragment;
                 case 1:
-                    return new DetailsFragment();
+                    return detailsFragment;
                 default:
                     return null;
             }
@@ -112,16 +113,4 @@ public class MainActivity extends AppCompatActivity {
             return null;
         }
     }
-    /*@Override
-    public boolean onKeyDown(int keyCode, KeyEvent event) {
-
-        switch (keyCode) {
-            case KeyEvent.KEYCODE_ENTER:
-            {
-                textOutput.setText("Works");
-                return true;
-            }
-        }
-        return super.onKeyDown(keyCode, event);
-    }*/
 }

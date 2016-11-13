@@ -11,7 +11,6 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
-import android.support.v7.app.AppCompatActivity;
 
 import com.diegosaul402.tempcalc.R;
 import com.diegosaul402.tempcalc.temps.TempEntity;
@@ -45,8 +44,6 @@ public class inputFragment extends Fragment {
     @Bind(R.id.btCalculate)
     Button btCalculate;
 
-    private DetailsFragmentListener fragmentListener;
-
     public inputFragment() {
         // Required empty public constructor
     }
@@ -60,11 +57,6 @@ public class inputFragment extends Fragment {
         radioCelsius.setChecked(true);
         textInput.setFocusable(true);
 
-        //DetailsFragment fragment = (DetailsFragment) getFragmentManager().findFragmentById(R.id.detailsFragment);
-        //fragment.setRetainInstance(true);
-        //fragmentListener = fragment;
-
-        //fragmentListener.initList();
         return view;
     }
 
