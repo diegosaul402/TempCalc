@@ -12,6 +12,8 @@ public class TempEntity {
     private double tempC;
     private Date timetamp;
 
+    private String strOutput;
+
     public double getTempK() {
         return tempK;
     }
@@ -42,5 +44,13 @@ public class TempEntity {
 
     public void setTimetamp(Date timetamp) {
         this.timetamp = timetamp;
+    }
+
+    public String getStrOutput() {
+        return strOutput;
+    }
+
+    public void setStrOutput(String strOutput) {
+        this.strOutput = strOutput;
     }
 }

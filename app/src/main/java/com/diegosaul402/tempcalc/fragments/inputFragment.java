@@ -11,16 +11,18 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.support.v7.app.AppCompatActivity;
 
 import com.diegosaul402.tempcalc.R;
+import com.diegosaul402.tempcalc.temps.TempEntity;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-import static com.diegosaul402.tempcalc.temps.TempUtils.calcFromC;
-import static com.diegosaul402.tempcalc.temps.TempUtils.calcFromF;
-import static com.diegosaul402.tempcalc.temps.TempUtils.calcFromK;
+import static com.diegosaul402.tempcalc.temps.TempUtils.fromCelsius;
+import static com.diegosaul402.tempcalc.temps.TempUtils.fromFahrenheit;
+import static com.diegosaul402.tempcalc.temps.TempUtils.fromKelvin;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -43,6 +45,8 @@ public class inputFragment extends Fragment {
     @Bind(R.id.btCalculate)
     Button btCalculate;
 
+    private DetailsFragmentListener fragmentListener;
+
     public inputFragment() {
         // Required empty public constructor
     }
@@ -55,6 +59,12 @@ public class inputFragment extends Fragment {
         ButterKnife.bind(this, view);
         radioCelsius.setChecked(true);
         textInput.setFocusable(true);
+
+        //DetailsFragment fragment = (DetailsFragment) getFragmentManager().findFragmentById(R.id.detailsFragment);
+        //fragment.setRetainInstance(true);
+        //fragmentListener = fragment;
+
+        //fragmentListener.initList();
         return view;
     }
 
@@ -64,10 +74,20 @@ public class inputFragment extends Fragment {
 
         if(!strInput.isEmpty()){
             double inputD = Double.parseDouble(strInput);
+            TempEntity tempEntity;
 
-            if(radioCelsius.isChecked()) textOutput.setText(calcFromC(inputD));
-            if(radioFar.isChecked()) textOutput.setText(calcFromF(inputD));
-            if(radioKelvin.isChecked()) textOutput.setText(calcFromK(inputD));
+            if(radioCelsius.isChecked()) {
+                tempEntity = fromCelsius(inputD);
+                textOutput.setText(tempEntity.getStrOutput());
+            }
+            if(radioFar.isChecked()){
+                tempEntity = fromFahrenheit(inputD);
+                textOutput.setText(tempEntity.getStrOutput());
+            }
+            if(radioKelvin.isChecked()) {
+                tempEntity = fromKelvin(inputD);
+                textOutput.setText(tempEntity.getStrOutput());
+            }
         }
         else {
             Toast toast = Toast.makeText(getActivity().getApplicationContext(),getString(R.string.Required), Toast.LENGTH_SHORT);
