@@ -8,7 +8,7 @@
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:inputType="numberSigned"
+        android:inputType="numberSigned|numberDecimal"
         android:ems="10"
         android:hint="@string/input_hint"
         android:id="@+id/txtInput"
