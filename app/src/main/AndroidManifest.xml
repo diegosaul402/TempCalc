@@ -18,10 +18,16 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".DetailedActivity"
+        <activity
+            android:name=".DetailedActivity"
             android:enabled="true"
-            android:theme="@style/Theme.AppCompat.Dialog.Alert"
-        android:label="@string/Details"/>
+            android:label="@string/Details"
+            android:theme="@style/Theme.AppCompat.Dialog.Alert" />
+        <activity
+            android:name=".AboutActivity"
+            android:enabled="true"
+            android:label="@string/action_about"
+            android:theme="@style/Theme.AppCompat.Dialog.Alert" />
     </application>
 
 </manifest>
