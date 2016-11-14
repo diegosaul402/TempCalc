@@ -17,8 +17,6 @@ public class TempUtils {
         temps.setTimetamp(new Date());
 
         DecimalFormat formatter = new DecimalFormat("#0.00");
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("HH:mm");
-
         temps.setStrOutput(formatter.format(temps.getTempC())+"°C Equivale a: " +
                 formatter.format(temps.getTempF())+ "°F y " +
                 formatter.format(temps.getTempK())+"K");
@@ -33,11 +31,9 @@ public class TempUtils {
         temps.setTimetamp(new Date());
 
         DecimalFormat formatter = new DecimalFormat("#0.00");
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("HH:mm");
-
         temps.setStrOutput(formatter.format(temps.getTempK())+"K Equivale a: " +
                 formatter.format(temps.getTempF())+ "°F y " +
-                formatter.format(temps.getTempC())+"°C, " + simpleDateFormat.format(temps.getTimetamp()));
+                formatter.format(temps.getTempC())+"°C");
         return temps;
     }
 
@@ -49,11 +45,9 @@ public class TempUtils {
         temps.setTimetamp(new Date());
 
         DecimalFormat formatter = new DecimalFormat("#0.00");
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("HH:mm");
-
         temps.setStrOutput(formatter.format(temps.getTempF())+"°F Equivale a: " +
                 formatter.format(temps.getTempC())+ "°C y " +
-                formatter.format(temps.getTempK())+"K, " + simpleDateFormat.format(temps.getTimetamp()));
+                formatter.format(temps.getTempK())+"K");
         return temps;
     }
 }
