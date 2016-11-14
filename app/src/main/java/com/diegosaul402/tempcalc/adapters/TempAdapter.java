@@ -2,6 +2,7 @@ package com.diegosaul402.tempcalc.adapters;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
+import android.text.format.DateUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,10 +12,13 @@ import com.diegosaul402.tempcalc.temps.TempEntity;
 import com.diegosaul402.tempcalc.R;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
+
+import static android.text.format.DateUtils.getRelativeTimeSpanString;
 
 /**
  * Created by diego on 09/11/2016.
@@ -54,8 +58,14 @@ public class TempAdapter extends RecyclerView.Adapter<TempAdapter.ViewHolder> {
     public void onBindViewHolder(ViewHolder holder, int position){
         TempEntity element = tempList.get(position);
 
-        //String strTip = String.format(context.getString(R.string.Required), TipUtils.getTip(element));
-        //holder.txtContent.setText(strTip);
+        String strTemp = element.getStrOutput();
+        holder.txtContent.setText(strTemp);
+
+        //calcular tiempo transcurrido
+        Long ahora = new Date().getTime();
+
+        String tiempo = getRelativeTimeSpanString(element.getTimetamp().getTime(),ahora, DateUtils.MINUTE_IN_MILLIS).toString();
+        holder.txtTime.setText(tiempo);
         holder.setOnItemClickListener(element, onItemClickListener);
     }
 
@@ -77,6 +87,8 @@ public class TempAdapter extends RecyclerView.Adapter<TempAdapter.ViewHolder> {
     public static class ViewHolder extends RecyclerView.ViewHolder{
         @Bind(R.id.txtContent)
         TextView txtContent;
+        @Bind(R.id.textTime)
+        TextView txtTime;
 
         public ViewHolder(View itemView){
             super(itemView);

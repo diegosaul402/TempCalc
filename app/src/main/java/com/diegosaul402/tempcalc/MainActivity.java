@@ -12,6 +12,7 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 
+import com.diegosaul402.tempcalc.fragments.DetailsFragment;
 import com.diegosaul402.tempcalc.fragments.DetailsFragmentListener;
 import com.diegosaul402.tempcalc.temps.TempEntity;
 
@@ -54,6 +55,12 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        DetailsFragment detailsFragment = (DetailsFragment) getSupportFragmentManager().findFragmentById(R.id.detailsFragment);
+        detailsFragment.setRetainInstance(true);
+
+        fragmentListener = detailsFragment;
+        fragmentListener.initList();
+
         radioCelsius.setChecked(true);
         txtInput.setFocusable(true);
     }
@@ -92,14 +99,17 @@ public class MainActivity extends AppCompatActivity {
             if(radioCelsius.isChecked()) {
                 tempEntity = fromCelsius(inputD);
                 textOutput.setText(tempEntity.getStrOutput());
+                fragmentListener.addToList(tempEntity);
             }
             if(radioFar.isChecked()){
                 tempEntity = fromFahrenheit(inputD);
                 textOutput.setText(tempEntity.getStrOutput());
+                fragmentListener.addToList(tempEntity);
             }
             if(radioKelvin.isChecked()) {
                 tempEntity = fromKelvin(inputD);
                 textOutput.setText(tempEntity.getStrOutput());
+                fragmentListener.addToList(tempEntity);
             }
         }
         else {

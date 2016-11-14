@@ -8,6 +8,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.diegosaul402.tempcalc.R;
 import com.diegosaul402.tempcalc.adapters.OnItemClickListener;
@@ -71,6 +72,7 @@ public class DetailsFragment extends Fragment implements DetailsFragmentListener
 
     @Override
     public void onItemClick(TempEntity tempEntity) {
+        Toast.makeText(getActivity().getApplicationContext(), tempEntity.getStrOutput(),Toast.LENGTH_SHORT).show();
 
     }
 }
