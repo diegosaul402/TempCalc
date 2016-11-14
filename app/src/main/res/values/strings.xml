@@ -13,4 +13,5 @@
     <string name="Calculate">Calcular</string>
     <string name="Required">Campo Requerido</string>
     <string name="input_hint">Temperatura</string>
+    <string name="Details">Detalles</string>
 </resources>

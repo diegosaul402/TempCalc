@@ -1,6 +1,7 @@
 package com.diegosaul402.tempcalc.fragments;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
@@ -10,6 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
+import com.diegosaul402.tempcalc.DetailedActivity;
 import com.diegosaul402.tempcalc.R;
 import com.diegosaul402.tempcalc.adapters.OnItemClickListener;
 import com.diegosaul402.tempcalc.adapters.TempAdapter;
@@ -73,6 +75,10 @@ public class DetailsFragment extends Fragment implements DetailsFragmentListener
     @Override
     public void onItemClick(TempEntity tempEntity) {
         Toast.makeText(getActivity().getApplicationContext(), tempEntity.getStrOutput(),Toast.LENGTH_SHORT).show();
+
+        Intent intent = new Intent(getActivity().getApplicationContext(), DetailedActivity.class);
+        intent.putExtra("text", tempEntity.getStrOutput());
+        startActivity(intent);
 
     }
 }
