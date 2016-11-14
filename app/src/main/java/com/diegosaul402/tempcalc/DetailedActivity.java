@@ -6,6 +6,8 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.TextView;
 
+import java.util.Date;
+
 import butterknife.Bind;
 import butterknife.ButterKnife;
 
@@ -13,6 +15,8 @@ public class DetailedActivity extends AppCompatActivity {
 
     @Bind(R.id.textDets)
     TextView textDets;
+    @Bind(R.id.textDate)
+    TextView textDate;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,6 +27,9 @@ public class DetailedActivity extends AppCompatActivity {
         Intent intent = getIntent();
 
         textDets.setText(intent.getStringExtra("text"));
+
+        Date fecha = new Date(intent.getLongExtra("date",0));
+        textDate.setText(fecha.toString());
     }
 
     @Override

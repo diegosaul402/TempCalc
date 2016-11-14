@@ -59,7 +59,6 @@ public class DetailsFragment extends Fragment implements DetailsFragmentListener
     @Override
     public void initList() {
         tempAdapter.init();
-
     }
 
     @Override
@@ -78,6 +77,7 @@ public class DetailsFragment extends Fragment implements DetailsFragmentListener
 
         Intent intent = new Intent(getActivity().getApplicationContext(), DetailedActivity.class);
         intent.putExtra("text", tempEntity.getStrOutput());
+        intent.putExtra("date", tempEntity.getTimetamp().getTime());
         startActivity(intent);
 
     }
