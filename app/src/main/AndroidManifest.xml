@@ -20,7 +20,7 @@
         </activity>
         <activity android:name=".DetailedActivity"
             android:enabled="true"
-            android:theme="@style/Theme.AppCompat.Light"
+            android:theme="@style/Theme.AppCompat.Dialog.Alert"
         android:label="@string/Details"/>
     </application>
 

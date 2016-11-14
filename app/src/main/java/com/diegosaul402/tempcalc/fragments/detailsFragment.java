@@ -73,8 +73,6 @@ public class DetailsFragment extends Fragment implements DetailsFragmentListener
 
     @Override
     public void onItemClick(TempEntity tempEntity) {
-        Toast.makeText(getActivity().getApplicationContext(), tempEntity.getStrOutput(),Toast.LENGTH_SHORT).show();
-
         Intent intent = new Intent(getActivity().getApplicationContext(), DetailedActivity.class);
         intent.putExtra("text", tempEntity.getStrOutput());
         intent.putExtra("date", tempEntity.getTimetamp().getTime());

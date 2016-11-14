@@ -64,7 +64,7 @@ public class TempAdapter extends RecyclerView.Adapter<TempAdapter.ViewHolder> {
         //calcular tiempo transcurrido
         Long ahora = new Date().getTime();
 
-        String tiempo = getRelativeTimeSpanString(element.getTimetamp().getTime(),ahora, DateUtils.MINUTE_IN_MILLIS).toString();
+        String tiempo = getRelativeTimeSpanString(element.getTimetamp().getTime(),ahora, DateUtils.SECOND_IN_MILLIS).toString();
         holder.txtTime.setText(tiempo);
         holder.setOnItemClickListener(element, onItemClickListener);
     }
