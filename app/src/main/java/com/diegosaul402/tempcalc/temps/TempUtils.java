@@ -21,7 +21,7 @@ public class TempUtils {
 
         temps.setStrOutput(formatter.format(temps.getTempC())+"°C Equivale a: " +
                 formatter.format(temps.getTempF())+ "°F y " +
-                formatter.format(temps.getTempK())+"K, " + simpleDateFormat.format(temps.getTimetamp()));
+                formatter.format(temps.getTempK())+"K");
         return temps;
     }
 
