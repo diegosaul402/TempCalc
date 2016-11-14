@@ -1,11 +1,14 @@
 package com.diegosaul402.tempcalc;
 
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.v4.view.ViewPager;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
@@ -81,7 +84,30 @@ public class MainActivity extends AppCompatActivity {
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
+        if (id == R.id.action_about) {
+            return true;
+        }
+        if (id == R.id.action_clear){
+            DialogInterface.OnClickListener listenerSI = new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    fragmentListener.clearList();
+
+                }
+            };
+            DialogInterface.OnClickListener listenerNO = new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+
+                }
+            };
+            AlertDialog.Builder alert = new AlertDialog.Builder(this);
+            alert.setTitle("Confirmación");
+            alert.setMessage("¿Está seguro de limpiar la lista?");
+            alert.setPositiveButton("Si", listenerSI);
+            alert.setNegativeButton("No", listenerNO);
+            alert.show();
+
             return true;
         }
 
